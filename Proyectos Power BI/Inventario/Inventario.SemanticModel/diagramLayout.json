@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 45.252746751147868,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 633.0269320869628,
+            "y": 27.6544563479237
+          },
+          "nodeIndex": "Producto",
+          "nodeLineageTag": "8742524d-4cc2-46af-8cc9-8af55ef63b9f",
+          "size": {
+            "height": 189.38217460830521,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 449.69682992763353,
+            "y": 334.12325128572928
+          },
+          "nodeIndex": "Inventario",
+          "nodeLineageTag": "28a48993-6257-44ef-b01b-2ebfb83614a4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 888.96746253949436,
+            "y": 289.97233755175716
+          },
+          "nodeIndex": "DAX",
+          "nodeLineageTag": "b9c900b5-190d-443f-9c9d-2e6045a1ed2f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 909.59053231229984,
+            "y": 0
+          },
+          "nodeIndex": "Corte",
+          "nodeLineageTag": "742717bf-631a-4727-ac19-bedce74247f3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 45.686134573627044,
+            "y": 142.04334396888081
+          },
+          "nodeIndex": "Fecha",
+          "nodeLineageTag": "84d8c0b5-361e-4044-9697-f19c170bdaa1",
+          "size": {
+            "height": 201,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 842.44835716842454,
+            "y": 434.64282007833049
+          },
+          "nodeIndex": "Bodega",
+          "nodeLineageTag": "5b6b66f4-e17a-4583-b10e-b9d5c4c29891",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 314.49964507169938,
+            "y": 0
+          },
+          "nodeIndex": "Categoria",
+          "nodeLineageTag": "c9b1bcd4-3d5b-4b6e-9c95-e36ad91e98f4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 79.553182037699926,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

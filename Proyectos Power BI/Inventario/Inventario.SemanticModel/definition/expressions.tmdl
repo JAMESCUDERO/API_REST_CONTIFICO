@@ -1,0 +1,820 @@
+expression '?page=1' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=1", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 8831c939-120b-446f-bcbd-189d90f63ee2
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (2)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "2", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 378c10f2-4459-4f9d-ae7e-cef9c33c2dda
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (3)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "3", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: deca7379-9865-4521-9eb8-6559737c0725
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (4)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "4", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: a9be583b-3cb6-4f43-b8f3-c235d7635f87
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (5)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "5", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: a06ce6c3-c944-48cd-aedd-23864cb5d1aa
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (6)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "6", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: bf3caf36-9f06-4303-951f-301e41265938
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (7)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "7", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 74ca3b54-7f70-4b9b-af1d-86bf44c0fb5c
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (8)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "8", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 16c41af5-36e1-499d-9958-72ffb41e7d0c
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (9)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "9", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: da827cb5-06ce-4c33-a569-ec19b82c28ee
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (10)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "10", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: a3f8ed10-f360-4919-9c03-59b99130e0e0
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (11)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "11", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 57339692-19cb-4de4-a65e-a34bfafe1f06
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (12)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "12", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 90c51dba-8294-4c2a-a55a-454d64ae6e34
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (13)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "13", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: 0442065a-c826-47a2-856e-ad1a2101d418
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (14)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "14", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: b48421c8-f63a-43ad-ac3c-6cb2f08244cd
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (7)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "7", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: bddee7c6-6682-4d09-9680-404641531eba
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (8)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "8", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: e6706767-d38e-4590-8004-894a10c12272
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (9)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "9", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 24663758-6754-4656-8475-c958cf30958c
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (10)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "10", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 331eb8f9-739c-485b-8cf3-e9f1588c9e76
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (11)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "11", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 1ae93f02-41f2-41fc-8039-945904ac0077
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (12)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "12", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 610cc933-5210-411d-bcdd-930d699806b7
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (1)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "1", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 52bbd868-fc41-4834-ae60-58ed442acb9d
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (2)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "2", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 9e818f0b-1997-4734-a047-2a33562d3d59
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (13)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "13", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: de4659af-e2d9-42e6-ae94-45ab1e43bb5b
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (3)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "3", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 7d953556-6088-4a46-ab89-37a6add73ba4
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (4)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "4", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 26ce223f-20c1-49df-8ca8-18a8ba500859
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (5)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "5", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: dfa948a8-7b06-499e-a136-5de0dbce6138
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (14)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "14", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 265acc79-dd67-4756-ae5b-03e28de46270
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (15)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "15", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 2e3b5ff1-7e57-4356-9f06-ccb67962eb57
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (16)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "16", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 9a1486ae-2ebb-4516-a712-c50c6ae0ebeb
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (17)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "17", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: b0be3e26-80ed-40ee-8e3d-285d3b336f12
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (18)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "18", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 6a361eb7-9071-446e-8e2b-abaa75a98f7d
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (19)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "19", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: d85866e2-3206-44f7-9955-b97df7ee46a6
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (20)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "20", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: c20bff67-b01e-4b9b-a48f-b541d0deeb4c
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (21)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "21", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: dbb17c94-38f0-4613-b2a7-1866a9d529ba
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (22)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "22", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 3a42a53a-13e2-44ae-9734-708c573462d3
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (23)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "23", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 4c30cf6d-7cdc-4178-81db-820be4c80bef
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (24)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "24", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 1e6b0b56-39d3-4327-810c-0a5fabc1c536
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (25)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "25", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 3871ec96-3b2b-4588-93ae-6f1b45fc6e73
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (26)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "26", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 80269206-9117-4899-aab7-fe42edcdd9fc
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (27)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "27", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 73dbb322-85c2-4104-acd5-ebcee7418101
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (28)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "28", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: b4b55edc-ad51-435b-b89d-b64425ba79f7
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (29)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "29", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 224d6c2c-8027-497b-9a22-e9692d67fd4d
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (30)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "30", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 6b5c425f-c4ea-4649-97ae-7cc25fb4de1f
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (31)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "31", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 39e7144e-fcfe-41d6-b8ea-e5705bad7ede
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (32)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "32", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 1ec133f9-874c-4f79-acfb-6ec516324fb2
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (6)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "6", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: b4cafc92-12ea-428c-954c-23a336b4fc49
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page=1 (15)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/producto/?page=" & "15", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"id", "unidad", "categoria_id", "codigo", "nombre", "codigo_auxiliar", "pvp_manual", "pvp1", "pvp2", "pvp3", "pvp4", "generacion_automatica", "porcentaje_iva", "minimo", "estado", "tipo", "tipo_producto", "para_pos", "personalizado1", "personalizado2", "descripcion", "codigo_barra", "fecha_creacion", "costo_maximo", "codigo_proveedor", "lead_time", "cantidad_stock", "cuenta_venta_id", "cuenta_compra_id", "cuenta_costo_id", "marca_id", "marca_nombre", "imagen", "producto_base_id", "nombre_producto_base", "detalle_variantes", "codigo_sap", "para_supereasy", "pvp_supereasy", "para_comisariato", "pvp_comisariato", "categoria_comisariato", "id_integracion_proveedor", "departamento", "descripcion_departamento", "familia", "descripcion_familia", "jerarquia", "descripcion_jerarquia", "indicador_peso", "pvp_peso", "peso_desde", "peso_hasta", "porcentaje_ice", "valor_ice", "campo_catalogo", "maneja_nombremanual", "porcentaje_servicio"}, {"results.id", "results.unidad", "results.categoria_id", "results.codigo", "results.nombre", "results.codigo_auxiliar", "results.pvp_manual", "results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4", "results.generacion_automatica", "results.porcentaje_iva", "results.minimo", "results.estado", "results.tipo", "results.tipo_producto", "results.para_pos", "results.personalizado1", "results.personalizado2", "results.descripcion", "results.codigo_barra", "results.fecha_creacion", "results.costo_maximo", "results.codigo_proveedor", "results.lead_time", "results.cantidad_stock", "results.cuenta_venta_id", "results.cuenta_compra_id", "results.cuenta_costo_id", "results.marca_id", "results.marca_nombre", "results.imagen", "results.producto_base_id", "results.nombre_producto_base", "results.detalle_variantes", "results.codigo_sap", "results.para_supereasy", "results.pvp_supereasy", "results.para_comisariato", "results.pvp_comisariato", "results.categoria_comisariato", "results.id_integracion_proveedor", "results.departamento", "results.descripcion_departamento", "results.familia", "results.descripcion_familia", "results.jerarquia", "results.descripcion_jerarquia", "results.indicador_peso", "results.pvp_peso", "results.peso_desde", "results.peso_hasta", "results.porcentaje_ice", "results.valor_ice", "results.campo_catalogo", "results.maneja_nombremanual", "results.porcentaje_servicio"})
+		in
+		    #"Se expandió results1"
+	lineageTag: cf2b647b-f326-4e1e-b658-007afaa9008b
+	queryGroup: 'Producto Origen'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (33)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "33", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 18a50f30-12c1-47d7-b220-abc0f3092905
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (34)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "34", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: 8cb8d9f4-9bcc-47ea-a1a6-441b442ed119
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression '?page= (35)' =
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=" & "35", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]])),
+		    #"Convertida en tabla" = Table.FromRecords({Origen}),
+		    #"Se expandió results" = Table.ExpandListColumn(#"Convertida en tabla", "results"),
+		    #"Se expandió results1" = Table.ExpandRecordColumn(#"Se expandió results", "results", {"codigo", "bodega_id", "tipo", "fecha", "generar_asiento", "pos", "cuenta_id", "detalles", "maneja_venta", "descripcion", "total", "estado", "id", "bodega_destino_id", "codigo_interno", "proyecto"}, {"results.codigo", "results.bodega_id", "results.tipo", "results.fecha", "results.generar_asiento", "results.pos", "results.cuenta_id", "results.detalles", "results.maneja_venta", "results.descripcion", "results.total", "results.estado", "results.id", "results.bodega_destino_id", "results.codigo_interno", "results.proyecto"}),
+		    #"Se expandió results.detalles" = Table.ExpandListColumn(#"Se expandió results1", "results.detalles"),
+		    #"Se expandió results.detalles1" = Table.ExpandRecordColumn(#"Se expandió results.detalles", "results.detalles", {"serie", "producto_id", "edicion", "precio", "cantidad", "unidad", "costo_promedio"}, {"results.detalles.serie", "results.detalles.producto_id", "results.detalles.edicion", "results.detalles.precio", "results.detalles.cantidad", "results.detalles.unidad", "results.detalles.costo_promedio"})
+		in
+		    #"Se expandió results.detalles1"
+	lineageTag: cb5542c2-8b52-43d1-8aa9-843ba118d3ac
+	queryGroup: 'Movimiento de inventario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

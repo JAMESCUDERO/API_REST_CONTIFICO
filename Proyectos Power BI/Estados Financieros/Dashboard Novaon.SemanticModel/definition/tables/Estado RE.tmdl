@@ -1,0 +1,70 @@
+table 'Estado RE'
+	lineageTag: 0902b8e9-3841-4e67-83bf-3c8f8f8d88f2
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ed4113cb-7b14-4495-8fdb-8d09ecbd9325
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Codigo
+		dataType: string
+		lineageTag: 21e52ae8-1827-4c69-a580-453131ba596b
+		summarizeBy: none
+		sourceColumn: Codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: string
+		lineageTag: 08af7fa8-69f3-47be-8823-955ea6cb19ed
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0c567277-fbbb-4a95-a237-d17b9a8bc8bf
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Estado RE' = m
+		mode: import
+		source =
+				let
+				      Origen = SharePoint.Files("https://aranciodata.sharepoint.com/sites/Novaon/", [ApiVersion = 15]),
+				    #"Filas filtradasf" = Table.SelectRows(Origen, each Text.StartsWith([Folder Path], "https://aranciodata.sharepoint.com/sites/Novaon/Documentos compartidos/Estado de Resultados/")),
+				    #"Filas filtradas3" = Table.SelectRows(#"Filas filtradasf", each not Text.StartsWith([Name], "~$")),
+				    #"Filas filtradas" = Table.SelectRows(#"Filas filtradas3", each Text.StartsWith([Folder Path], "https://aranciodata.sharepoint.com/sites/Novaon/Documentos compartidos/Estado de Resultados/")),
+				    #"Filas filtradas1" = Table.SelectRows(#"Filas filtradas", each [Extension] = ".xlsx"),
+				    #"Texto extraído entre delimitadores" = Table.TransformColumns(#"Filas filtradas1", {{"Folder Path", each Text.BetweenDelimiters(_, "/", "/", {0, RelativePosition.FromEnd}, {0, RelativePosition.FromEnd}), type text}}),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Texto extraído entre delimitadores",{"Folder Path", "Content"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Otras columnas quitadas", "Personalizado", each Excel.Workbook([Content])),
+				    #"Se expandió Personalizado" = Table.ExpandTableColumn(#"Personalizada agregada", "Personalizado", {"Name", "Data", "Item", "Kind", "Hidden"}, {"Name", "Data", "Item", "Kind", "Hidden"}),
+				    #"Filas filtradas2" = Table.SelectRows(#"Se expandió Personalizado", each [Kind] = "Sheet"),
+				    #"Otras columnas quitadas1" = Table.SelectColumns(#"Filas filtradas2",{"Folder Path", "Data"}),
+				    #"Función personalizada invocada" = Table.AddColumn(#"Otras columnas quitadas1", "Función", each Función([Data])),
+				    #"Otras columnas quitadas2" = Table.SelectColumns(#"Función personalizada invocada",{"Folder Path", "Función"}),
+				    #"Se expandió Función" = Table.ExpandTableColumn(#"Otras columnas quitadas2", "Función", {"Column1", "Column2", "Atributo", "Valor"}, {"Column1", "Column2", "Atributo", "Valor"}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Se expandió Función", "Personalizado", each 1),
+				    #"Filas filtradas4" = Table.SelectRows(#"Personalizada agregada1", each [Atributo] <> "Total"),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Filas filtradas4",{"Personalizado", "Atributo", "Folder Path", "Column1", "Column2", "Valor"}),
+				    #"Columnas combinadas" = Table.CombineColumns(Table.TransformColumnTypes(#"Columnas reordenadas", {{"Personalizado", type text}}, "es-EC"),{"Personalizado", "Atributo", "Folder Path"},Combiner.CombineTextByDelimiter("/", QuoteStyle.None),"Fecha"),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas combinadas",{{"Column1", "Codigo"}, {"Column2", "Nombre"}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"Valor", type number}, {"Codigo", type text}, {"Nombre", type text}, {"Fecha", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

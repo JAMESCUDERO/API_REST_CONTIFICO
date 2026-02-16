@@ -1,0 +1,76 @@
+expression Función = ```
+		(datosexcel as table) as table => 
+		
+		let 
+		
+		Origen=datosexcel, 
+		
+		    #"Filas en blanco eliminadas" = Table.SelectRows(Origen, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+		    #"Tabla transpuesta" = Table.Transpose(#"Filas en blanco eliminadas"),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Tabla transpuesta",{"Column1", "Column2", "Column3"}),
+		    #"Tabla transpuesta1" = Table.Transpose(#"Columnas quitadas"),
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tabla transpuesta1", [PromoteAllScalars=true]),
+		    #"Otras columnas con anulación de dinamización" = Table.UnpivotOtherColumns(#"Encabezados promovidos", {"Column1", "Column2"}, "Atributo", "Valor")
+		in
+		    #"Otras columnas con anulación de dinamización"
+		```
+	lineageTag: b707ccfe-c724-4374-8be6-466a2f26ed65
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
+expression 'Plan Origen' = ```
+		let
+		    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v1/contabilidad/cuenta-contable/", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]]), 65001),
+		    #"Convertida en tabla" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Se expandió Column1" = Table.ExpandRecordColumn(#"Convertida en tabla", "Column1", {"nombre", "codigo", "tipo"}, {"nombre", "codigo", "tipo"}),
+		    #"Poner En Mayúsculas Cada Palabra" = Table.TransformColumns(#"Se expandió Column1",{{"nombre", Text.Proper, type text}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Poner En Mayúsculas Cada Palabra", "Punto", each Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", ""))),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "Nivel 1", each if Text.Length([codigo])= 1 then [nombre]
+		else null),
+		    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "Nivel 2", each if(Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=1 then [nombre]
+		else null),
+		    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "Nivel 3", each if(Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=2 then [nombre] 
+		else if (Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=2 and [tipo]="C" then [nombre]
+		else null),
+		    #"Personalizada agregada4" = Table.AddColumn(#"Personalizada agregada3", "Nivel 4", each if(Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=3 then [nombre] 
+		else if (Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))<=3 and [tipo]="C" then [nombre]
+		else null),
+		    #"Personalizada agregada5" = Table.AddColumn(#"Personalizada agregada4", "Nivel 5", each if(Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=4 then [nombre] 
+		else if (Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))<=4 and [tipo]="C" then [nombre]
+		else null),
+		    #"Personalizada agregada6" = Table.AddColumn(#"Personalizada agregada5", "Nivel 6", each if(Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))=5 then [nombre] 
+		else if (Text.Length([codigo]) - Text.Length(Text.Replace([codigo], ".", "")))<=5 and [tipo]="C" then [nombre]
+		else null),
+		    #"Rellenar hacia abajo" = Table.FillDown(#"Personalizada agregada6",{"Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5", "Nivel 6"}),
+		    #"Filas filtradas" = Table.SelectRows(#"Rellenar hacia abajo", each [tipo] = "C"),
+		    #"Primeros caracteres insertados" = Table.AddColumn(#"Filas filtradas", "Primeros caracteres", each Text.Start([codigo], 6), type text),
+		    #"Valor reemplazado" = Table.ReplaceValue(#"Primeros caracteres insertados",".","",Replacer.ReplaceText,{"Primeros caracteres"}),
+		    #"Dividir columna por posición" = Table.SplitColumn(#"Valor reemplazado", "Primeros caracteres", Splitter.SplitTextByPositions({0, 2}, false), {"Primeros caracteres.1", "Primeros caracteres.2"}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Dividir columna por posición",{{"Primeros caracteres.1", Int64.Type}, {"Primeros caracteres.2", Int64.Type}}),
+		    #"Valor reemplazado1" = Table.ReplaceValue(#"Tipo cambiado",null,0,Replacer.ReplaceValue,{"Primeros caracteres.2"}),
+		    #"Personalizada agregada7" = Table.AddColumn(#"Valor reemplazado1", "Numero", each [Primeros caracteres.1]*100 +[Primeros caracteres.2]),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Personalizada agregada7",{"Primeros caracteres.1", "Primeros caracteres.2"}),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columnas quitadas",{{"Numero", Int64.Type}})
+		in
+		    #"Tipo cambiado1"
+		```
+	lineageTag: 432d8164-111f-4818-a5da-70093d92093f
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression Numero =
+		(data as table) as table =>
+		let
+		    Origen = data
+		in
+		    Origen
+	lineageTag: ca4a44a5-ea88-4bbf-bef1-351096e134ee
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+

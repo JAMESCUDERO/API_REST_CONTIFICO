@@ -1,0 +1,120 @@
+table 'DAX SI'
+	lineageTag: 975b2e9f-e8e2-44fd-b978-be380b58123e
+
+	measure Activos =
+			CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                    ,FILTER('Plan SI','Plan SI'[Numero]<2000))
+		lineageTag: ec711fd2-eaa9-44bd-a6e4-76283b831bc5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Pasivos =
+			CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                    ,FILTER('Plan SI','Plan SI'[Numero]>=2000
+			                                && 'Plan SI'[Numero]<3000))
+		lineageTag: 91ae14a7-c2ac-4327-b722-e73f853902a1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Patrimonio =
+			CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                    ,FILTER('Plan SI','Plan SI'[Numero]>=3000
+			                                && 'Plan SI'[Numero]<4000))
+		lineageTag: bd5f7d7f-94d0-45a1-a291-301524c4e135
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Balance = [Activos]-[Pasivos]-[Patrimonio]
+		lineageTag: 177f7d83-5aa9-44fa-b929-a6636accfa05
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TT1% = ```
+			
+			var denominador = CALCULATE(SUMX('Estado SI','Estado SI'[Valor]), ALLSELECTED('Plan SI'[Nivel 3]))
+			var numerador = SUMX('Estado SI','Estado SI'[Valor])
+			RETURN
+			DIVIDE(numerador,denominador,BLANK())
+			
+			
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 695bfa9b-deca-497a-9ee3-1d2fc01024e4
+
+	measure 'Balance AA+' = CALCULATE([Balance],DATEADD(Fecha[Date],-12,MONTH))
+		lineageTag: a12ce531-4eac-4091-9de4-84f691f8262e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance MA' = CALCULATE([Balance],DATEADD(Fecha[Date],-1,MONTH))
+		lineageTag: 2de87647-139c-4345-9225-42036f7dad09
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance var$ AA' = ```
+			
+			                    SUMX('Estado SI','Estado SI'[Valor])
+			                    - CALCULATE(SUMX('Estado SI','Estado SI'[Valor]) 
+			                                ,DATEADD(Fecha[Date],-12,MONTH))
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 05563ca9-b34f-4b20-93f5-9cee1f5c5bd2
+
+	measure 'Balance AA-' = ```
+			CALCULATE(SUMX('Estado SI','Estado SI'[Valor]) 
+			                                ,DATEADD(Fecha[Date],-12,MONTH))
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 601ff791-d58b-4b53-aef0-1f6485c23ee2
+
+	measure 'Balance var% AA' = ```
+			
+			DIVIDE([Balance var$ AA],[Balance AA-],BLANK())
+			
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 08b45704-0d86-4dca-bcc5-8b135b50cee0
+
+	measure 'Balance MA-' = ```
+			CALCULATE(SUMX('Estado SI','Estado SI'[Valor]) 
+			                                ,DATEADD(Fecha[Date],-1,MONTH))
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 3adf3ffa-26df-48bc-a355-54c75c9b533e
+
+	measure 'Balance var$ MA' = ```
+			
+			                    SUMX('Estado SI','Estado SI'[Valor])
+			                    - CALCULATE(SUMX('Estado SI','Estado SI'[Valor]) 
+			                                ,DATEADD(Fecha[Date],-1,MONTH))
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 1f9ee9c1-a0c1-4c2d-9b8b-9962eecbe1ea
+
+	measure 'Balance var% MA' = ```
+			
+			DIVIDE([Balance var$ MA],[Balance MA-],BLANK())
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 547dfc80-663f-4a30-9905-276ccd0ccd89
+
+	measure 'filtro TTAA' = ABS([Balance AA-]+ABS([Balance]))
+		lineageTag: 5de9c7bb-1d26-40ea-90ff-7258ba090a12
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'DAX SI' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

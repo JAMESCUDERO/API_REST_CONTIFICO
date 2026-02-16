@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Dashboard Novaon"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a2f23306-99f8-48f8-88f1-3999721436ac"
+  }
+}

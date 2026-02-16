@@ -1,0 +1,21 @@
+relationship 4a2176e4-5ea1-4d7f-b823-1827703c3f87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fecha.Date
+	toColumn: LocalDateTable_15f81783-75e5-4221-a6a1-2b681e1b38ab.Date
+
+relationship 9378dd93-7b32-82a4-4bb4-80eb093ca7fc
+	fromColumn: 'Estado SI'.Fecha
+	toColumn: Fecha.Date
+
+relationship 5ede2fba-09f3-9c4f-d4f2-5dbb3551e121
+	fromColumn: 'Estado RE'.Fecha
+	toColumn: Fecha.Date
+
+relationship d867e635-2b4c-f25b-a0d8-1e37ad0915ae
+	fromColumn: 'Estado SI'.Codigo
+	toColumn: 'Plan SI'.codigo
+
+relationship 5faa063c-9446-e899-8846-31b30e0c21f0
+	fromColumn: 'Estado RE'.Codigo
+	toColumn: 'Plan RE'.codigo
+

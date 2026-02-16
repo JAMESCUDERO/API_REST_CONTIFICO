@@ -1,0 +1,516 @@
+table Producto
+	lineageTag: 8742524d-4cc2-46af-8cc9-8af55ef63b9f
+
+	column count
+		dataType: string
+		lineageTag: 1247edc5-688b-4245-9563-c9d94a5ec078
+		summarizeBy: none
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column next
+		dataType: string
+		lineageTag: 35129ac6-65da-45f2-974c-6e782b04aae6
+		summarizeBy: none
+		sourceColumn: next
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous
+		dataType: string
+		lineageTag: f687e25d-1c6b-42d1-abdb-933d9be13b85
+		summarizeBy: none
+		sourceColumn: previous
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.id'
+		dataType: string
+		lineageTag: b324d659-3abe-4ea3-8ad4-a7ca604741c4
+		summarizeBy: none
+		sourceColumn: results.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.unidad'
+		dataType: string
+		lineageTag: bd94e8f8-e768-4e96-b4eb-c1fc2431ad39
+		summarizeBy: none
+		sourceColumn: results.unidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.categoria_id'
+		dataType: string
+		isHidden
+		lineageTag: 5f62b9b4-135d-46b5-b878-738f852e4217
+		summarizeBy: none
+		sourceColumn: results.categoria_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo'
+		dataType: string
+		lineageTag: 8028fb2f-c8a8-4c0c-ab52-f788e02bf25a
+		summarizeBy: none
+		sourceColumn: results.codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.nombre'
+		dataType: string
+		lineageTag: 4fe42151-a47d-4173-b6fe-18dc18a05a67
+		summarizeBy: none
+		sourceColumn: results.nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo_auxiliar'
+		dataType: string
+		lineageTag: dd8c508b-1e12-4922-b122-a276d619c6e2
+		summarizeBy: none
+		sourceColumn: results.codigo_auxiliar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp_manual'
+		dataType: string
+		lineageTag: ae42f62a-fc2a-482d-82c5-e869ddafb7e7
+		summarizeBy: none
+		sourceColumn: results.pvp_manual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp1'
+		dataType: double
+		formatString: 0
+		lineageTag: b646e15a-fb56-47ef-9679-b06e11174f77
+		summarizeBy: sum
+		sourceColumn: results.pvp1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp2'
+		dataType: double
+		lineageTag: 8c7d61ea-be77-4d4d-9535-6ab7350222c3
+		summarizeBy: sum
+		sourceColumn: results.pvp2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'results.pvp3'
+		dataType: double
+		lineageTag: db01c8e2-3683-4d43-b1d8-36de6d3ae440
+		summarizeBy: sum
+		sourceColumn: results.pvp3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'results.pvp4'
+		dataType: double
+		lineageTag: 3e0a504a-e5ab-4b8c-ba9b-604a20c659d4
+		summarizeBy: sum
+		sourceColumn: results.pvp4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'results.generacion_automatica'
+		dataType: string
+		lineageTag: c2fc193c-d6a2-4e06-b0af-814f554c1474
+		summarizeBy: none
+		sourceColumn: results.generacion_automatica
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.porcentaje_iva'
+		dataType: string
+		lineageTag: 82f2d6d9-d468-48ac-8835-1235f7fc1fd2
+		summarizeBy: none
+		sourceColumn: results.porcentaje_iva
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.minimo'
+		dataType: string
+		lineageTag: cb27a357-bf9c-4849-b88a-97eb5ba86f5c
+		summarizeBy: none
+		sourceColumn: results.minimo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.estado'
+		dataType: string
+		lineageTag: dafe385b-8911-494b-bbcd-cab7d9abd095
+		summarizeBy: none
+		sourceColumn: results.estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.tipo'
+		dataType: string
+		lineageTag: 9b2df686-ea55-4113-9386-a5ac567db995
+		summarizeBy: none
+		sourceColumn: results.tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.tipo_producto'
+		dataType: string
+		lineageTag: 7984fddc-38fb-448f-b847-bae679155a55
+		summarizeBy: none
+		sourceColumn: results.tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.para_pos'
+		dataType: string
+		lineageTag: ddaff7ff-bbec-4655-9a59-9d9024f0b16b
+		summarizeBy: none
+		sourceColumn: results.para_pos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.personalizado1'
+		dataType: string
+		lineageTag: 01ab66c1-bc3f-4686-bc6d-48eed5a02934
+		summarizeBy: none
+		sourceColumn: results.personalizado1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.personalizado2'
+		dataType: string
+		lineageTag: ab9c6a25-b7c5-401d-869b-e78ac74cfcf9
+		summarizeBy: none
+		sourceColumn: results.personalizado2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.descripcion'
+		dataType: string
+		lineageTag: 70dede9d-23e7-4a0d-9ec3-a1df2aafa394
+		summarizeBy: none
+		sourceColumn: results.descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo_barra'
+		dataType: string
+		lineageTag: a00aacc6-3a0f-4b69-a943-188f52c729c7
+		summarizeBy: none
+		sourceColumn: results.codigo_barra
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.fecha_creacion'
+		dataType: string
+		lineageTag: bd7d0ae1-38cb-49c8-aece-445a81568e06
+		summarizeBy: none
+		sourceColumn: results.fecha_creacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.costo_maximo'
+		dataType: string
+		lineageTag: f3a31313-6afe-4a5f-9a24-5ffd08508df9
+		summarizeBy: none
+		sourceColumn: results.costo_maximo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo_proveedor'
+		dataType: string
+		lineageTag: b2cb2b40-0733-47cd-8eb8-55d5bd92497e
+		summarizeBy: none
+		sourceColumn: results.codigo_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.lead_time'
+		dataType: string
+		lineageTag: 174a2ea8-1a64-4dfb-9b60-75201f4a947e
+		summarizeBy: none
+		sourceColumn: results.lead_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.cantidad_stock'
+		dataType: string
+		lineageTag: dc6a7110-f90d-47d0-b919-ef251911db61
+		summarizeBy: none
+		sourceColumn: results.cantidad_stock
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.cuenta_venta_id'
+		dataType: string
+		lineageTag: 47a6f266-69ab-455f-983f-713c8e5df186
+		summarizeBy: none
+		sourceColumn: results.cuenta_venta_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.cuenta_compra_id'
+		dataType: string
+		lineageTag: db8f448b-2785-4a37-8e2f-58ad7407b306
+		summarizeBy: none
+		sourceColumn: results.cuenta_compra_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.cuenta_costo_id'
+		dataType: string
+		lineageTag: 7693d557-c4f4-4e55-b972-46aaf4ef2ef2
+		summarizeBy: none
+		sourceColumn: results.cuenta_costo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.marca_id'
+		dataType: string
+		lineageTag: 24117fb0-92c3-4d20-b258-a8b0e796772a
+		summarizeBy: none
+		sourceColumn: results.marca_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.marca_nombre'
+		dataType: string
+		lineageTag: 69367400-4632-4ef2-b317-601fe1e6b4e0
+		summarizeBy: none
+		sourceColumn: results.marca_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.imagen'
+		dataType: string
+		lineageTag: 00fee62b-0024-4556-a89a-442b4d72e9a5
+		summarizeBy: none
+		sourceColumn: results.imagen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.producto_base_id'
+		dataType: string
+		lineageTag: b75ec3bf-a0a0-46cb-8b1e-d13c87e52ff3
+		summarizeBy: none
+		sourceColumn: results.producto_base_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.nombre_producto_base'
+		dataType: string
+		lineageTag: 2e52081e-6975-40b1-adec-fa015db8f122
+		summarizeBy: none
+		sourceColumn: results.nombre_producto_base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalle_variantes'
+		dataType: string
+		lineageTag: e28c14b4-a3f0-4967-be30-95e3aca9794d
+		summarizeBy: none
+		sourceColumn: results.detalle_variantes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo_sap'
+		dataType: string
+		lineageTag: 028e6ba8-eb70-4ba0-9707-da0fb24317ab
+		summarizeBy: none
+		sourceColumn: results.codigo_sap
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.para_supereasy'
+		dataType: string
+		lineageTag: 62a51dcc-8e2c-4fd7-93f2-5de454a22597
+		summarizeBy: none
+		sourceColumn: results.para_supereasy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp_supereasy'
+		dataType: string
+		lineageTag: bb6be41b-fe2c-4266-9594-d865c984e083
+		summarizeBy: none
+		sourceColumn: results.pvp_supereasy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.para_comisariato'
+		dataType: string
+		lineageTag: 7fe37c75-fb41-4b98-b054-d6a2edba5938
+		summarizeBy: none
+		sourceColumn: results.para_comisariato
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp_comisariato'
+		dataType: string
+		lineageTag: 13834bb1-11fa-4c36-9f6e-813cb4996a45
+		summarizeBy: none
+		sourceColumn: results.pvp_comisariato
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.categoria_comisariato'
+		dataType: string
+		lineageTag: 079dfecc-d63b-4266-9c1c-3ac7b81491c6
+		summarizeBy: none
+		sourceColumn: results.categoria_comisariato
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.id_integracion_proveedor'
+		dataType: string
+		lineageTag: f9a8b576-6bae-4311-8907-2414af38ec0c
+		summarizeBy: none
+		sourceColumn: results.id_integracion_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.departamento'
+		dataType: string
+		lineageTag: d72d1707-3d62-4158-a309-b23b43e922de
+		summarizeBy: none
+		sourceColumn: results.departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.descripcion_departamento'
+		dataType: string
+		lineageTag: a9c84026-243b-4f67-ac6e-f14bbef21c4a
+		summarizeBy: none
+		sourceColumn: results.descripcion_departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.familia'
+		dataType: string
+		lineageTag: ae8462d2-4fc9-4212-81bd-a51fa97cb3d7
+		summarizeBy: none
+		sourceColumn: results.familia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.descripcion_familia'
+		dataType: string
+		lineageTag: 085c9cc2-fcbe-4b74-ae43-fbc09abd5439
+		summarizeBy: none
+		sourceColumn: results.descripcion_familia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.jerarquia'
+		dataType: string
+		lineageTag: be5eaf31-aa2b-4078-b15e-a4f2b8683d79
+		summarizeBy: none
+		sourceColumn: results.jerarquia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.descripcion_jerarquia'
+		dataType: string
+		lineageTag: 2d271b4b-ee88-45ed-b673-9d3272918c8e
+		summarizeBy: none
+		sourceColumn: results.descripcion_jerarquia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.indicador_peso'
+		dataType: string
+		lineageTag: dd667473-ff04-45d0-86e8-5299d980d2da
+		summarizeBy: none
+		sourceColumn: results.indicador_peso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pvp_peso'
+		dataType: string
+		lineageTag: 0441f242-8abe-4cb7-b3bd-5cb4e5cde58e
+		summarizeBy: none
+		sourceColumn: results.pvp_peso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.peso_desde'
+		dataType: string
+		lineageTag: d95aa6f6-d578-456d-a813-27a959147400
+		summarizeBy: none
+		sourceColumn: results.peso_desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.peso_hasta'
+		dataType: string
+		lineageTag: f0fea6bb-09ad-4bf9-ad06-8dc56ead4eff
+		summarizeBy: none
+		sourceColumn: results.peso_hasta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.porcentaje_ice'
+		dataType: string
+		lineageTag: 4d114c94-d3e7-4b43-a825-3846ecf953bb
+		summarizeBy: none
+		sourceColumn: results.porcentaje_ice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.valor_ice'
+		dataType: string
+		lineageTag: 41307094-ed18-4b37-849f-d87ec411bf4a
+		summarizeBy: none
+		sourceColumn: results.valor_ice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.campo_catalogo'
+		dataType: string
+		lineageTag: 34a0c169-73e3-425e-8134-3eb3072e4ca8
+		summarizeBy: none
+		sourceColumn: results.campo_catalogo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.maneja_nombremanual'
+		dataType: string
+		lineageTag: c9242261-1a83-44ce-b88b-87e77f980ebf
+		summarizeBy: none
+		sourceColumn: results.maneja_nombremanual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.porcentaje_servicio'
+		dataType: string
+		lineageTag: c5a4d420-7a56-4966-bc55-1d0e1a2218ac
+		summarizeBy: none
+		sourceColumn: results.porcentaje_servicio
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Producto = m
+		mode: import
+		source =
+				let
+				    Origen = Table.Combine({#"?page=1", #"?page=1 (2)", #"?page=1 (3)", #"?page=1 (4)", #"?page=1 (5)", #"?page=1 (6)", #"?page=1 (7)", #"?page=1 (8)", #"?page=1 (9)", #"?page=1 (10)", #"?page=1 (11)", #"?page=1 (12)", #"?page=1 (13)", #"?page=1 (14)", #"?page=1 (15)"}),
+				    #"Valor reemplazado" = Table.ReplaceValue(Origen,".",",",Replacer.ReplaceText,{"results.pvp1", "results.pvp2", "results.pvp3", "results.pvp4"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Valor reemplazado",{{"results.pvp1", type number}, {"results.pvp2", type number}, {"results.pvp3", type number}, {"results.pvp4", type number}}),
+				    #"Poner En Mayúsculas Cada Palabra" = Table.TransformColumns(#"Tipo cambiado",{{"results.nombre", Text.Proper, type text}})
+				in
+				    #"Poner En Mayúsculas Cada Palabra"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

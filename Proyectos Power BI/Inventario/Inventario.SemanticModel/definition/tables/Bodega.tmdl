@@ -1,0 +1,49 @@
+table Bodega
+	lineageTag: 5b6b66f4-e17a-4583-b10e-b9d5c4c29891
+
+	column id
+		dataType: string
+		isHidden
+		lineageTag: 8ad49da3-4352-42a7-a98f-2233aa735717
+		summarizeBy: none
+		sourceColumn: id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo
+		dataType: string
+		isHidden
+		lineageTag: e7089cd1-7de4-4a8b-accf-f11ea73ef0d4
+		summarizeBy: none
+		sourceColumn: codigo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 21596ade-02ca-4429-b8a4-b336123ff49d
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bodega = m
+		mode: import
+		source =
+				let
+				    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v1/bodega/", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]]), 65001),
+				    #"Convertida en tabla" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Se expandió Column1" = Table.ExpandRecordColumn(#"Convertida en tabla", "Column1", {"id", "codigo", "nombre"}, {"id", "codigo", "nombre"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Se expandió Column1",{{"id", type text}, {"codigo", type text}, {"nombre", type text}}),
+				    #"Poner En Mayúsculas Cada Palabra" = Table.TransformColumns(#"Tipo cambiado",{{"nombre", Text.Proper, type text}})
+				in
+				    #"Poner En Mayúsculas Cada Palabra"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

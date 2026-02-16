@@ -1,0 +1,105 @@
+table 'Plan RE'
+	lineageTag: f85cd9b7-1eff-465d-8b9a-61f5ca7033bb
+
+	column nombre
+		dataType: string
+		lineageTag: 63409c7b-feb5-4daa-8c96-2b9a1ed5b35d
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo
+		dataType: string
+		lineageTag: be9b4045-ac2c-4933-89a1-3ca51e2ae291
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: 701731ab-fc4d-4a84-b5ae-52af107b20b2
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Punto
+		dataType: string
+		lineageTag: 04034e39-2374-4cfe-bdc9-ac637917f88c
+		summarizeBy: none
+		sourceColumn: Punto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 1'
+		dataType: string
+		lineageTag: e00bba4e-c3db-4988-ac00-918c3c93ea83
+		summarizeBy: none
+		sourceColumn: Nivel 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 2'
+		dataType: string
+		lineageTag: 976d9c33-ac9f-46da-aa3e-eeb2d9cabfd0
+		summarizeBy: none
+		sourceColumn: Nivel 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 3'
+		dataType: string
+		lineageTag: bc20ec04-1c07-4678-8212-fbb6feab485e
+		summarizeBy: none
+		sourceColumn: Nivel 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 4'
+		dataType: string
+		lineageTag: 7a6db1ec-4541-45f8-af34-6ccce47fc4e3
+		summarizeBy: none
+		sourceColumn: Nivel 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 5'
+		dataType: string
+		lineageTag: 591395ad-f51b-49d9-befe-204149474de2
+		summarizeBy: none
+		sourceColumn: Nivel 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 6'
+		dataType: string
+		lineageTag: 18abce50-fdd7-4cf8-a567-44e59dd1bf84
+		summarizeBy: none
+		sourceColumn: Nivel 6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero
+		dataType: int64
+		formatString: 0
+		lineageTag: cacd2b17-5238-4bca-bdfa-f67e6010ba13
+		summarizeBy: none
+		sourceColumn: Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Plan RE' = m
+		mode: import
+		source =
+				let
+				    Origen = #"Plan Origen",
+				    #"Filas filtradas" = Table.SelectRows(Origen, each [Numero] > 4000)
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

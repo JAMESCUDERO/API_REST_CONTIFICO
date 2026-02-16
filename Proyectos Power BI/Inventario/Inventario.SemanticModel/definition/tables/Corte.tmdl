@@ -1,0 +1,36 @@
+table Corte
+	lineageTag: 742717bf-631a-4727-ac19-bedce74247f3
+
+	column Corte
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d8360f8b-558d-417d-8321-0e2a9c981883
+		summarizeBy: none
+		sourceColumn: Corte
+
+		variation Variación
+			isDefault
+			relationship: bf3bbb3f-dfc3-4923-9c6c-b1de21461f7b
+			defaultHierarchy: LocalDateTable_57f1fadd-3fd2-499b-b1fd-371a7348433a.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Corte = m
+		mode: import
+		source =
+				let
+				    // Obtener fecha y hora actuales en UTC
+				    FechaHoraUTC = DateTimeZone.UtcNow(),
+				
+				    // Aplicar la zona horaria deseada (por ejemplo, -5 horas)
+				    FechaHoraZona = DateTimeZone.SwitchZone(FechaHoraUTC, -5),
+				
+				    // Quitar información de zona horaria si solo quieres fecha/hora
+				    FechaHora = DateTimeZone.RemoveZone(FechaHoraZona)
+				in
+				    FechaHora
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = DateTime
+

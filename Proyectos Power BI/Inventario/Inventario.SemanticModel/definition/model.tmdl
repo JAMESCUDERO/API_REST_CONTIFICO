@@ -1,0 +1,35 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-EC
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Producto Origen'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Movimiento de inventario'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation PBI_QueryOrder = ["?page=1","?page=1 (2)","?page=1 (3)","?page=1 (4)","?page=1 (5)","?page=1 (6)","?page=1 (7)","?page=1 (8)","?page=1 (9)","?page=1 (10)","?page=1 (11)","?page=1 (12)","?page=1 (13)","?page=1 (14)","Inventario","Bodega","Producto","?page= (1)","?page= (2)","?page= (3)","?page= (4)","?page= (5)","?page= (6)","?page= (7)","?page= (8)","?page= (9)","?page= (10)","?page= (11)","?page= (12)","?page= (13)","?page= (14)","?page= (15)","?page= (16)","?page= (17)","?page= (18)","?page= (19)","?page= (20)","?page= (21)","?page= (22)","?page= (23)","?page= (24)","?page= (25)","?page= (26)","?page= (27)","?page= (28)","?page= (29)","?page= (30)","?page= (31)","?page= (32)","DAX","Corte","Categoria","?page=1 (15)","?page= (33)","?page= (34)","?page= (35)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Producto
+ref table DateTableTemplate_a73e30af-7aab-4ff2-904b-d18bdbf62a24
+ref table Inventario
+ref table DAX
+ref table Corte
+ref table LocalDateTable_57f1fadd-3fd2-499b-b1fd-371a7348433a
+ref table Fecha
+ref table LocalDateTable_b9deba53-5838-48ca-8eef-d585cdd865b8
+ref table Bodega
+ref table Categoria
+
+ref cultureInfo es-ES
+

@@ -1,0 +1,98 @@
+table DAX
+	lineageTag: b9c900b5-190d-443f-9c9d-2e6045a1ed2f
+
+	measure Ingresos =
+			
+			CALCULATE(SUMX(Inventario,Inventario[results.detalles.cantidad]),FILTER(Inventario,Inventario[results.tipo]="ING"))
+		formatString: 0
+		lineageTag: c7570dd0-1bbc-467b-a178-9b4cabbdbb31
+
+	measure Egresos =
+			
+			CALCULATE(SUMX(Inventario,Inventario[results.detalles.cantidad]),FILTER(Inventario,Inventario[results.tipo]="EGR"))
+		formatString: 0
+		lineageTag: 553a72f4-8d41-447c-b248-7210f37b40b3
+
+	measure Traslado =
+			
+			CALCULATE(SUMX(Inventario,Inventario[results.detalles.cantidad]),FILTER(Inventario,Inventario[results.tipo]="TRA"))
+		formatString: 0
+		lineageTag: e1fd8499-5862-4885-9101-ea9ed4a27678
+
+	measure Ajuste =
+			
+			CALCULATE(SUMX(Inventario,Inventario[results.detalles.cantidad]),FILTER(Inventario,Inventario[results.tipo]="AJU"))
+		formatString: 0
+		lineageTag: 54311c1c-c242-4b91-847b-38fbd39d0112
+
+	measure Existencias = [Ingresos]-[Egresos]
+		formatString: 0
+		lineageTag: 25d72554-0d69-48fb-8871-bf3536faae4c
+
+	measure 'Existencia Acu' =
+			
+			CALCULATE(
+			    [Existencias],
+			    FILTER(
+			        ALL(Fecha),
+			        'Fecha'[Date] <= MAX(Fecha[Date])
+			    )
+			)
+		formatString: 0
+		lineageTag: 33bf4f4b-d99e-4fdb-9944-ffc9867f184e
+
+	measure 'Egresos neg' = -[Egresos]
+		formatString: 0
+		lineageTag: 89c795a9-9da4-481e-a945-ed95a796c1b5
+
+	measure Existencias$ = [Existencias] * SUMX(Producto,Producto[results.pvp1])
+		lineageTag: 3eec946c-a9d1-4fbd-9959-f4116bb2bea0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Ingresos$ = [Ingresos]* SUMX(Producto,Producto[results.pvp1])
+		lineageTag: 4953a013-88aa-453c-b372-c1c8ca0366b5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Egresos$ = [Egresos neg] * SUMX(Producto,Producto[results.pvp1])
+		lineageTag: f5e348e5-45b2-4e94-9a39-c20ed180d948
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Existencias$ Acu' = [Existencia Acu]* SUMX(Producto,Producto[results.pvp1])
+		lineageTag: 6c2b7b9c-6e5b-4322-8b7d-10cba13ed842
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ingresos Acu' =
+			
+			CALCULATE(
+			    [Ingresos],
+			    FILTER(
+			        ALL(Fecha),
+			        'Fecha'[Date] <= MAX(Fecha[Date])
+			    ))
+		formatString: 0
+		lineageTag: 45b2904e-ef83-47b5-96ae-4aaed207835e
+
+	measure formula = [Ingresos]+[Egresos]
+		formatString: 0
+		lineageTag: 18410ac6-28f8-4967-b99e-8ccffe04de8b
+
+	measure 'Ingreso nombre' = CALCULATE([Ingresos],FILTER(Producto,Producto[results.nombre]=Producto[results.nombre]))
+		formatString: 0
+		lineageTag: 1c5b0220-0b45-432e-872a-c6c32c8f1dfb
+
+	partition DAX = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

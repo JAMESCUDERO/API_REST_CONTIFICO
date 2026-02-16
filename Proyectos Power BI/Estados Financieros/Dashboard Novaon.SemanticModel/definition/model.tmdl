@@ -1,0 +1,28 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-EC
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Plan Origen","Estado SI","Función","DAX RE","Estado RE","Plan SI","Plan RE","DAX SI","DAX TESORERIA","Numero","DAX DUPONT"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Estado SI'
+ref table DateTableTemplate_a7c633e0-f91c-4838-a45d-d56362bb8363
+ref table Fecha
+ref table LocalDateTable_15f81783-75e5-4221-a6a1-2b681e1b38ab
+ref table 'DAX RE'
+ref table 'Estado RE'
+ref table 'Plan SI'
+ref table 'Plan RE'
+ref table 'DAX SI'
+ref table 'DAX TESORERIA'
+ref table 'DAX DUPONT'
+
+ref cultureInfo es-ES
+

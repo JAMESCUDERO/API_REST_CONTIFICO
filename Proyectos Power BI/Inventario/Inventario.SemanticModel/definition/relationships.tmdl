@@ -1,0 +1,26 @@
+relationship 16bd290d-c4f2-64aa-fd70-5bea34f09200
+	fromColumn: Inventario.'results.detalles.producto_id'
+	toColumn: Producto.'results.id'
+
+relationship bf3bbb3f-dfc3-4923-9c6c-b1de21461f7b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Corte.Corte
+	toColumn: LocalDateTable_57f1fadd-3fd2-499b-b1fd-371a7348433a.Date
+
+relationship 98b60437-2849-4b5d-b916-a95ad6d02399
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fecha.Date
+	toColumn: LocalDateTable_b9deba53-5838-48ca-8eef-d585cdd865b8.Date
+
+relationship 844fb96c-3b51-1c2b-ebab-3afc070287e5
+	fromColumn: Inventario.'results.fecha'
+	toColumn: Fecha.Date
+
+relationship AutoDetected_c24df599-5db3-4dc3-b453-cc2f94272c7f
+	fromColumn: Inventario.'results.bodega_id'
+	toColumn: Bodega.id
+
+relationship AutoDetected_0e73f883-281b-40cf-bc40-d58f6bbdd761
+	fromColumn: Producto.'results.categoria_id'
+	toColumn: Categoria.id
+

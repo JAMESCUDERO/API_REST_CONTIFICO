@@ -1,0 +1,232 @@
+table Inventario
+	lineageTag: 28a48993-6257-44ef-b01b-2ebfb83614a4
+
+	column count
+		dataType: string
+		lineageTag: c05135d8-f7a0-45bc-83d9-5708aba32889
+		summarizeBy: none
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column next
+		dataType: string
+		lineageTag: eaff989e-71c4-48df-8717-3297533983c1
+		summarizeBy: none
+		sourceColumn: next
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous
+		dataType: string
+		lineageTag: e6ff8701-6a58-4d47-9ad8-ec98ac8002d6
+		summarizeBy: none
+		sourceColumn: previous
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo'
+		dataType: string
+		lineageTag: 95e77a58-5526-47f5-b46d-9e03d0543487
+		summarizeBy: none
+		sourceColumn: results.codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.bodega_id'
+		dataType: string
+		isHidden
+		lineageTag: b8436bd2-0790-4635-9f65-05b57e060eb2
+		summarizeBy: none
+		sourceColumn: results.bodega_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.tipo'
+		dataType: string
+		lineageTag: e28e8ab0-5470-4b34-a8e7-0e2e5ee05aa4
+		summarizeBy: none
+		sourceColumn: results.tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.fecha'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 4ca81bef-cf6e-48d6-99b9-0d87de379cc0
+		summarizeBy: none
+		sourceColumn: results.fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'results.generar_asiento'
+		dataType: string
+		lineageTag: 69c0c090-9b5e-4072-96c4-224c5230b837
+		summarizeBy: none
+		sourceColumn: results.generar_asiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.pos'
+		dataType: string
+		lineageTag: 97ebe8da-2606-4f91-8e30-af63b21cc7a4
+		summarizeBy: none
+		sourceColumn: results.pos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.cuenta_id'
+		dataType: string
+		lineageTag: 3e14263c-976d-45af-9f75-db3cc1ab8bd3
+		summarizeBy: none
+		sourceColumn: results.cuenta_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.serie'
+		dataType: string
+		lineageTag: 31bef0cf-d023-46f3-bffa-f102fc28c52c
+		summarizeBy: none
+		sourceColumn: results.detalles.serie
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.producto_id'
+		dataType: string
+		isHidden
+		lineageTag: e98c23ca-7467-4e02-8405-644852ab0868
+		summarizeBy: none
+		sourceColumn: results.detalles.producto_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.edicion'
+		dataType: string
+		lineageTag: 177cb4a1-ad30-47ee-93af-88c6d4f70c19
+		summarizeBy: none
+		sourceColumn: results.detalles.edicion
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.precio'
+		dataType: string
+		lineageTag: 94d481f9-c5c4-470a-ae21-cf1405330e1e
+		summarizeBy: none
+		sourceColumn: results.detalles.precio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.cantidad'
+		dataType: int64
+		formatString: 0
+		lineageTag: eab5a648-1276-4dfc-969a-56d9b85f981a
+		summarizeBy: sum
+		sourceColumn: results.detalles.cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.unidad'
+		dataType: string
+		lineageTag: 4b3a6789-c587-4228-b39f-c98d92ab5fd1
+		summarizeBy: none
+		sourceColumn: results.detalles.unidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.detalles.costo_promedio'
+		dataType: double
+		formatString: 0
+		lineageTag: fe91edbe-48a0-44b8-b916-e60c42b29fad
+		summarizeBy: sum
+		sourceColumn: results.detalles.costo_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.maneja_venta'
+		dataType: string
+		lineageTag: da5b90ea-5f35-4ed1-bd87-12e87be80f3e
+		summarizeBy: none
+		sourceColumn: results.maneja_venta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.descripcion'
+		dataType: string
+		lineageTag: 3b98838b-84c9-4caa-ad72-8bc51ebcc363
+		summarizeBy: none
+		sourceColumn: results.descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.total'
+		dataType: string
+		lineageTag: 06b118ab-96be-40cd-962d-2fc8bb60c501
+		summarizeBy: none
+		sourceColumn: results.total
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.estado'
+		dataType: string
+		lineageTag: 38a52b56-76fa-43aa-8b80-34dc7c4bf0e5
+		summarizeBy: none
+		sourceColumn: results.estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.id'
+		dataType: string
+		lineageTag: 9171c2cb-7bb8-4544-8430-6546248039b1
+		summarizeBy: none
+		sourceColumn: results.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.bodega_destino_id'
+		dataType: string
+		lineageTag: 29cb5c88-76d8-4319-b252-6c9e730124cc
+		summarizeBy: none
+		sourceColumn: results.bodega_destino_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.codigo_interno'
+		dataType: string
+		lineageTag: 028c93f8-0e67-4d6c-bfef-f9e9d38ae467
+		summarizeBy: none
+		sourceColumn: results.codigo_interno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'results.proyecto'
+		dataType: string
+		lineageTag: c9b0641a-794e-492d-afc1-e00512f23e45
+		summarizeBy: none
+		sourceColumn: results.proyecto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Inventario = m
+		mode: import
+		source =
+				let
+				    Origen = Table.Combine({#"?page= (1)", #"?page= (2)", #"?page= (3)", #"?page= (4)", #"?page= (5)", #"?page= (6)", #"?page= (7)", #"?page= (8)", #"?page= (9)", #"?page= (10)", #"?page= (11)", #"?page= (12)", #"?page= (13)", #"?page= (14)", #"?page= (15)", #"?page= (16)", #"?page= (17)", #"?page= (18)", #"?page= (19)", #"?page= (20)", #"?page= (21)", #"?page= (22)", #"?page= (23)", #"?page= (24)", #"?page= (25)", #"?page= (26)", #"?page= (27)", #"?page= (28)", #"?page= (29)", #"?page= (30)", #"?page= (31)", #"?page= (32)", #"?page= (33)", #"?page= (34)", #"?page= (35)"}),
+				    #"Texto extraído antes del delimitador" = Table.TransformColumns(Origen, {{"results.detalles.cantidad", each Text.BeforeDelimiter(_, "."), type text}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Texto extraído antes del delimitador",".",",",Replacer.ReplaceText,{"results.detalles.costo_promedio"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Valor reemplazado",{{"results.detalles.costo_promedio", type number}, {"results.detalles.cantidad", Int64.Type}, {"results.fecha", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

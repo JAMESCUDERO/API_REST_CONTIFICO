@@ -1,0 +1,171 @@
+table 'DAX TESORERIA'
+	lineageTag: 20a496b3-00ab-4ede-bcea-2929723ae602
+
+	measure 'Fondo de maniobra' =
+			
+			var Activos_Corriente = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1100 &&
+			                                            'Plan SI'[Numero]<1200))
+			var Pasivos_Corrientes = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2100 &&
+			                                            'Plan SI'[Numero]<2200))
+			RETURN
+			 Activos_Corriente - Pasivos_Corrientes
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0868e969-b452-4cde-b595-62f84208c982
+
+	measure 'Fondo de maniobra (dias)' = ```
+			
+			var Activos_Corriente = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1100 &&
+			                                            'Plan SI'[Numero]<1200))
+			
+			var Pasivos_Corrientes = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2100 &&
+			                                            'Plan SI'[Numero]<2200))
+			
+			VAR NUMERADOR = Activos_Corriente - Pasivos_Corrientes 
+			
+			VAR COSTO_VENTA = CALCULATE([YTD]
+			                        ,FILTER('Plan RE','Plan RE'[Numero]>=5100
+			                                        && 'Plan RE'[Numero]<5200))
+			
+			RETURN
+			DIVIDE(NUMERADOR,COSTO_VENTA,BLANK())*365
+			
+			```
+		formatString: 0
+		lineageTag: 83c9cfc3-b1b2-42e3-8e13-fe859b969dae
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Tesoreria Neta' =
+			
+			var Disponible = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1101 &&
+			                                            'Plan SI'[Numero]<1102))
+			var P_1 = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2104 &&
+			                                            'Plan SI'[Numero]<2105))
+			var P_2 = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2106 &&
+			                                            'Plan SI'[Numero]<2107))
+			var P_3 = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2101 &&
+			                                            'Plan SI'[Numero]<2102))
+			
+			return
+			
+			Disponible
+			+(P_1+P_2+P_3)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 54cc253e-b62b-4304-ad5f-5435783a025a
+
+	measure Solvencia =
+			
+			var activo = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1000 &&
+			                                            'Plan SI'[Numero]<2000))
+			var pasivo = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2000 &&
+			                                            'Plan SI'[Numero]<3000))
+			RETURN
+			DIVIDE([Activos],[Pasivos],BLANK())
+		lineageTag: 14ca296a-53dd-4491-926b-7dfcae9e5499
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Liquidez =
+			
+			var activ_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1100 &&
+			                                            'Plan SI'[Numero]<1200))
+			var pasivo_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2100 &&
+			                                            'Plan SI'[Numero]<2200))
+			RETURN
+			DIVIDE(activ_corr,pasivo_corr,BLANK())
+		lineageTag: a8a0181e-3f62-4727-98ff-740493d9f723
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tesoreria =
+			
+			var activo_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1100 &&
+			                                            'Plan SI'[Numero]<1200))
+			
+			var inventario = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1103 &&
+			                                            'Plan SI'[Numero]<1104))
+			
+			var pasivo_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2100 &&
+			                                            'Plan SI'[Numero]<2200))
+			
+			var numerador = activo_corr-inventario
+			RETURN
+			DIVIDE(numerador, pasivo_corr,BLANK())
+		lineageTag: e18d3ad8-0ade-43e9-9d6b-a469121e5103
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Disponibilidad = ```
+			
+			var disponible = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1101 &&
+			                                            'Plan SI'[Numero]<1102))
+			var pasivo_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=2100 &&
+			                                            'Plan SI'[Numero]<2200))
+			RETURN
+			DIVIDE(disponible,pasivo_corr,BLANK())
+			
+			```
+		formatString: 0.00
+		lineageTag: f1d9b02a-09df-4e14-b49d-123c408b099e
+
+	measure 'Tesoreria (dias venta)' =
+			
+			var activ_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1101 &&
+			                                            'Plan SI'[Numero]<1102))
+			var ventas = CALCULATE([YTD]
+			                                ,FILTER('Plan RE','Plan RE'[Numero]>=4101 &&
+			                                            'Plan RE'[Numero]<4103))
+			RETURN
+			DIVIDE(activ_corr,ventas,BLANK())*365
+		formatString: 0
+		lineageTag: 8986d910-6b1b-4430-9231-551ab258659f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Tesoreria (dias compra)' =
+			
+			var activ_corr = CALCULATE(SUMX('Estado SI','Estado SI'[Valor])
+			                                ,FILTER('Plan SI','Plan SI'[Numero]>=1101 &&
+			                                            'Plan SI'[Numero]<1102))
+			var compras = CALCULATE([YTD]
+			                                ,FILTER('Plan RE','Plan RE'[Numero]>=5101 &&
+			                                            'Plan RE'[Numero]<5104))
+			RETURN
+			DIVIDE(activ_corr,compras,BLANK())*365
+		formatString: 0
+		lineageTag: 5a78188e-68c5-4049-9f0b-f003f5362f13
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	partition 'DAX TESORERIA' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

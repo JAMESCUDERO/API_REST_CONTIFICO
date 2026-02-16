@@ -1,0 +1,45 @@
+table Categoria
+	lineageTag: c9b1bcd4-3d5b-4b6e-9c95-e36ad91e98f4
+
+	column id
+		dataType: string
+		isHidden
+		lineageTag: 4a94ad6a-e3cf-46fa-a757-f7f1901905de
+		summarizeBy: none
+		sourceColumn: id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 1527ef94-2ec2-4261-9209-bca2a5cd57df
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_producto
+		dataType: string
+		lineageTag: 4fb76911-d218-4c12-99fa-87c93180c510
+		summarizeBy: none
+		sourceColumn: tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Categoria = m
+		mode: import
+		source =
+				let
+				    Origen = Json.Document(Web.Contents("https://api.contifico.com/sistema/api/v1/categoria/", [Headers=[Authorization="PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ"]]), 65001),
+				    #"Convertida en tabla" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Se expandió Column1" = Table.ExpandRecordColumn(#"Convertida en tabla", "Column1", {"id", "nombre", "tipo_producto"}, {"id", "nombre", "tipo_producto"}),
+				    #"Poner En Mayúsculas Cada Palabra" = Table.TransformColumns(#"Se expandió Column1",{{"nombre", Text.Proper, type text}})
+				in
+				    #"Poner En Mayúsculas Cada Palabra"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

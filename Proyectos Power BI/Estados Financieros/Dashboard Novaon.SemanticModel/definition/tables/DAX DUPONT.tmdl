@@ -1,0 +1,359 @@
+table 'DAX DUPONT'
+	lineageTag: cde9c3a9-29d4-46b5-b420-3d97505a6119
+
+	measure 'Venta Neta' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=4101
+			                                             && 'Plan RE'[Numero]<4102))
+			RETURN
+			final
+			
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: e5a378d6-6691-4c42-b711-c9a37dd9a5de
+
+	measure 'Prestación de Servicios' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=4102
+			                                             && 'Plan RE'[Numero]<4103))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 192d2988-7c6b-4dc8-b52f-bdcc8a7a1fc5
+
+	measure 'Otros Ingresos' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=4111
+			                                             && 'Plan RE'[Numero]<4112))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 4571d17c-1dc1-4ad8-821a-4b0083d02936
+
+	measure 'Ingresos Totales' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=4000
+			                                             && 'Plan RE'[Numero]<5000))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 9db6a9e3-f180-404c-9424-2a5f0e5bcffc
+
+	measure 'G. Administrativos' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE','Plan RE'[Nivel 4]="Administrativos"))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 188b7961-6351-4392-b32b-1fd56a266f2f
+
+	measure 'G. Financieros' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE','Plan RE'[Nivel 4]="Gastos Financieros"))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b5e627a0-45d5-47ef-9848-307214b71c6f
+
+	measure 'G. de Ventas' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE','Plan RE'[Nivel 4]="Ventas"))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: eb72a4c8-b944-4448-a3ea-8f97f626e8e2
+
+	measure 'Otros Gastos' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5202
+			                                             && 'Plan RE'[Numero]<5204))
+			var final2 = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5104
+			                                             && 'Plan RE'[Numero]<5105))
+			
+			RETURN
+			 final + final2
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7e848bd6-9429-4ff0-b6de-fb86f9e0c8a3
+
+	measure Materiales = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5101
+			                                             && 'Plan RE'[Numero]<5102))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 72721999-6972-4aa9-98ad-bae24f33809c
+
+	measure 'Mano de Obra' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5102
+			                                             && 'Plan RE'[Numero]<5103))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7c2c09fa-0b3a-44ac-98b8-3d417dc1cef8
+
+	measure 'Costos Indirectos' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5104
+			                                             && 'Plan RE'[Numero]<5105))
+			RETURN
+			final
+			```
+		lineageTag: 88aabcff-7acd-4e3d-9de4-805d36623d93
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gastos Totales' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5000
+			                                             && 'Plan RE'[Numero]<6000))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 51ce8f9b-ebb9-49ca-bb72-21f39573111e
+
+	measure 'AC Inventario' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1103
+			                                             && 'Plan SI'[Numero]<1104))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 9df2a2f2-d2ac-4844-99bb-1296efc1236f
+
+	measure 'AC Disponible' = ```
+			
+			 
+			 var Efectivo  = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1101
+			                                             && 'Plan SI'[Numero]<1102))
+			 var Anticipo  = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1104
+			                                             && 'Plan SI'[Numero]<1105))
+			
+			RETURN
+			Efectivo + Anticipo
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 37f7e878-978e-4d61-bd40-f9d792d0a7e3
+
+	measure 'AC Realizable' = ```
+			
+			 
+			 var Impuesto  = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1102
+			                                             && 'Plan SI'[Numero]<1103))
+			 var financiero  = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1105
+			                                             && 'Plan SI'[Numero]<1106))
+			
+			RETURN
+			Impuesto + financiero
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: c675da18-459b-4e9f-9337-ef2521f6d37e
+
+	measure 'AC Activo Corriente' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1100
+			                                             && 'Plan SI'[Numero]<1200))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f9c0ee69-9b00-4c75-b275-52f55355079a
+
+	measure 'AF Propiedad Planta Eq' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1201
+			                                             && 'Plan SI'[Numero]<1202))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 39c34d9f-db78-40e5-9ef9-c54ba111e2b3
+
+	measure 'AF Activo Fijo' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1200
+			                                             && 'Plan SI'[Numero]<1300))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 82cb2527-796c-422d-9c76-5fcc282f8700
+
+	measure 'AT Activo Total' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=1000
+			                                             && 'Plan SI'[Numero]<2000))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7c203213-42db-43af-849a-e61c058de5ad
+
+	measure EBITDA|UAII = [Ingresos Totales]-[GASTOS OPERATIVOS]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 26d077e8-c74c-4d9f-b44e-12cbb6092a68
+
+	measure 'Margen de Ventas' = DIVIDE( [EBITDA|UAII],[Venta Neta],BLANK())
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: a1108915-a50c-4311-b412-b48c7a30c674
+
+	measure 'Rotación de Activos' = DIVIDE([Venta Neta],[AT Activo Total],BLANK())
+		formatString: 0.00
+		lineageTag: 58de1ef4-9cc6-440c-be51-5cd3db64e15b
+
+	measure ROA = [Margen de Ventas]*[Rotación de Activos]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f1bee17f-df0a-49c8-a504-2284d69f201c
+
+	measure 'Patrimonio Neto' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        SUMX('Estado SI','Estado SI'[Valor])
+			                        ,FILTER('Plan SI',  'Plan SI'[Numero]>=3000
+			                                             && 'Plan SI'[Numero]<4000))
+			RETURN
+			final
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: be626a57-31df-4ffb-9451-04c85b772563
+
+	measure EBT-UAI = [EBITDA|UAII] - [G. Financieros]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a5330f14-6fa7-4946-b388-46dd01e20cc5
+
+	measure Apalancamiento =
+			
+			var numerodor = DIVIDE([AT Activo Total],[Patrimonio Neto])
+			var denominador = DIVIDE([EBT-UAI],[EBITDA|UAII],BLANK())
+			RETURN
+			numerodor * denominador
+		formatString: 0%;-0%;0%
+		lineageTag: 32fe7a51-c9c0-4af4-b005-262df93d64cb
+
+	measure 'Beneficio Neto' = [Ingresos Totales] -[Gastos Totales]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 38e2bc81-3cc4-4a7d-b84e-5fc526e5f167
+
+	measure 'Efecto Fiscal' = DIVIDE([Beneficio Neto],[EBT-UAI],BLANK())
+		lineageTag: 41e3457a-0ce7-4d1e-922b-2c81a3b3765a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ROE = [ROA]*[Apalancamiento]*[Efecto Fiscal]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 03d4606a-6e74-421b-a889-c31071dd0422
+
+	measure 'GASTOS OPERATIVOS' = ```
+			
+			 
+			 var final = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5201
+			                                             && 'Plan RE'[Numero]<5202))
+			var finalE = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5100
+			                                             && 'Plan RE'[Numero]<5200))
+			
+			var depreciacion = CALCULATE(
+			                        TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+			                        ,FILTER('Plan RE',  'Plan RE'[Numero]>=5104
+			                                             && 'Plan RE'[Numero]<5105))
+			RETURN
+			 final +finalE - depreciacion
+			```
+		lineageTag: 3fedbb16-ef07-4b1f-a4ef-caccdf800fc7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Resultado ACU' = TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+		lineageTag: 3fe8f13b-28ea-45e7-9d0e-68f9f0783396
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'DAX DUPONT' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

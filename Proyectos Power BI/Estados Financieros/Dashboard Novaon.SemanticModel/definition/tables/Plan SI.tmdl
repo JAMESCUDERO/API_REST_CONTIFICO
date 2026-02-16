@@ -1,0 +1,105 @@
+table 'Plan SI'
+	lineageTag: 880fd7e7-2bb7-4e3b-9802-da3451549831
+
+	column nombre
+		dataType: string
+		lineageTag: 092d05e9-c538-4075-bdf2-19f76b425bd9
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo
+		dataType: string
+		lineageTag: f3a4a8d6-0652-4ee8-884f-077b8313b192
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: 8923fa00-be42-412b-875a-8258a680a392
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Punto
+		dataType: string
+		lineageTag: af3b8dff-a0b1-4503-ba46-f5ea797fce1e
+		summarizeBy: none
+		sourceColumn: Punto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 1'
+		dataType: string
+		lineageTag: 1d9fa0ed-f80c-470a-b5ae-999b3795619c
+		summarizeBy: none
+		sourceColumn: Nivel 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 2'
+		dataType: string
+		lineageTag: e7086292-f949-4594-9216-cacae55f0d64
+		summarizeBy: none
+		sourceColumn: Nivel 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 3'
+		dataType: string
+		lineageTag: b130f1d9-a2b1-4a0b-9bb4-3091b75cba92
+		summarizeBy: none
+		sourceColumn: Nivel 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 4'
+		dataType: string
+		lineageTag: 6d2af175-230f-429c-b488-38eaf631a20c
+		summarizeBy: none
+		sourceColumn: Nivel 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 5'
+		dataType: string
+		lineageTag: 167e663f-7638-45c4-b88a-961d3e8a1109
+		summarizeBy: none
+		sourceColumn: Nivel 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nivel 6'
+		dataType: string
+		lineageTag: 898f9835-6bd9-44b7-be0a-9da788de4b71
+		summarizeBy: none
+		sourceColumn: Nivel 6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero
+		dataType: int64
+		formatString: 0
+		lineageTag: 99df5a1d-1cd7-460d-a435-589545601d94
+		summarizeBy: none
+		sourceColumn: Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Plan SI' = m
+		mode: import
+		source =
+				let
+				    Origen = #"Plan Origen",
+				    #"Filas filtradas" = Table.SelectRows(Origen, each [Numero] < 4000)
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

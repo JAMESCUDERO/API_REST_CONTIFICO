@@ -1,0 +1,30 @@
+table Fecha
+	lineageTag: 84d8c0b5-361e-4044-9697-f19c170bdaa1
+
+	column Date
+		formatString: General Date
+		lineageTag: 4ae1de8d-88a8-4d02-830e-cbe497ca20c1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variación
+			isDefault
+			relationship: 98b60437-2849-4b5d-b916-a95ad6d02399
+			defaultHierarchy: LocalDateTable_b9deba53-5838-48ca-8eef-d585cdd865b8.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = MONTH(Fecha[Date])
+		formatString: 0
+		lineageTag: 9932e599-35cd-41ab-843d-406c8150df6b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fecha = calculated
+		mode: import
+		source = CALENDARAUTO()
+
+	annotation PBI_Id = 3996eaf8c15c479abbe70daf1ad05afb
+

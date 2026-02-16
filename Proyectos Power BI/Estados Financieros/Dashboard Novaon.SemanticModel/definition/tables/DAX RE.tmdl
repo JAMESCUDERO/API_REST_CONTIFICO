@@ -1,0 +1,148 @@
+table 'DAX RE'
+	lineageTag: 561e917e-2318-4241-b2a3-3aec51afe452
+
+	measure Resultados =
+			
+			
+			[Ingresos]-[Gastos]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ae8059d8-b0e3-4b5d-8490-08df22143252
+
+	measure Ingresos =
+			CALCULATE(SUMX('Estado RE','Estado RE'[Valor])
+			                        ,FILTER('Plan RE','Plan RE'[Numero]>=4000
+			                                        && 'Plan RE'[Numero]<5000))
+		lineageTag: 177d9af9-fbc2-4641-8353-235963ac53c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Gastos = ```
+			CALCULATE(SUMX('Estado RE','Estado RE'[Valor])
+			                        ,FILTER('Plan RE','Plan RE'[Numero]>=5000
+			                                        && 'Plan RE'[Numero]<6000))     
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2d1062c9-95f6-4fd5-b5f4-30128a19ba38
+
+	measure YTD = TOTALYTD(SUMX('Estado RE','Estado RE'[Valor]),Fecha[Date])
+		lineageTag: 8862f57c-2d8b-4a5e-8bba-304d1616a72b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Peso_%_TTER3 =
+			
+			var denominador = CALCULATE([Resultados],ALLSELECTED('Plan RE'[Nivel 4]))
+			RETURN
+			DIVIDE([Resultados],denominador,BLANK())
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 0abca9e2-505f-42e9-8d70-9a24805a94df
+
+	measure BAR_resultados = ```
+			
+			
+			var MA = CALCULATE([Resultados],DATEADD(fecha[Date],-1,MONTH))
+			var DIFERENCIA = [Resultados]-MA 
+			VAR DIFERENCIA_2 = IF(DIFERENCIA<0,0,DIFERENCIA)
+			VAR PRIMER_DATO = CALCULATE([Resultados],FILTER(fecha,fecha[Date].[NroMes]=1))
+			RETURN
+			
+			(DIFERENCIA_2+PRIMER_DATO)*(-1)
+			```
+		lineageTag: 192634c8-06e4-42ac-93a3-9ec65165fbb7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure BAR_Ingresos = ```
+			
+			
+			var MA = CALCULATE([Ingresos],DATEADD(fecha[Date],-1,MONTH))
+			var DIFERENCIA = [Ingresos]-MA 
+			VAR DIFERENCIA_2 = IF(DIFERENCIA<0,0,DIFERENCIA)
+			VAR PRIMER_DATO = CALCULATE([Ingresos],FILTER(fecha,fecha[Date].[NroMes]=1))
+			RETURN
+			
+			(DIFERENCIA_2+PRIMER_DATO)
+			```
+		lineageTag: 7969c391-166f-4720-8f68-da8725368d77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gastos -' = ```
+			CALCULATE(SUMX('Estado RE','Estado RE'[Valor])
+			                        ,FILTER('Plan RE','Plan RE'[Numero]>=5000
+			                                        && 'Plan RE'[Numero]<6000)) *(-1)  
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 366c9d66-c876-49b9-af80-45a19b524614
+
+	measure 'filtro re' = ABS([Ingresos])+ABS([Gastos])
+		lineageTag: eae0fb93-e9e3-476e-8870-4c89f442dd38
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ingresos YTD' = TOTALYTD([Ingresos],Fecha[Date])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: c2d7f07c-afd5-4d77-9862-d481280d99e1
+
+	measure 'Gastos YTD' = TOTALYTD([Gastos],Fecha[Date])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2113bccf-bc72-4065-a9e4-9ef3ab187787
+
+	measure 'Resultados MA' = ```
+			CALCULATE([Resultados],DATEADD(Fecha[Date],-1,MONTH))
+			
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 47333a59-3e55-489e-a652-f2d4d2af1ead
+
+	measure 'Resultados % MA' =
+			
+			
+			var res1=[Resultados]-[Resultados MA]
+			var resul = DIVIDE(res1,[Resultados],BLANK())
+			return
+			resul
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 42a019eb-e3e9-444d-ba8c-f84fdccbdbfa
+
+	measure 'Resultados YTD' = [Ingresos YTD] -[Gastos YTD]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 5dac24f7-baa6-430a-a677-405a93bf0932
+
+	measure 'Resultados YTD MA' = ```
+			CALCULATE([Resultados YTD],DATEADD(Fecha[Date],-1,MONTH))
+			
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 6f973212-9a32-4d10-b636-60b0352e7edd
+
+	measure 'Resultados YTD % MA' =
+			
+			
+			var res1=[Resultados YTD]-[Resultados YTD MA]
+			var resul = DIVIDE(res1,[Resultados YTD],BLANK())
+			return
+			resul
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: daec4db0-245d-49c9-a81b-6cd970d4a5de
+
+	measure 'Resultados YTD $ MA' =
+			
+			[Resultados YTD]-[Resultados YTD MA]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ff2748e0-de00-4579-9556-3b435fe66807
+
+	partition 'DAX RE' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+
