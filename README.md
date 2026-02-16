@@ -1,4 +1,4 @@
-# Power BI Enterprise Dashboard – Integración API REST Contifico
+# Power BI – Integración API REST Contifico
 
  ## Resumen Ejecutivo
 Este proyecto implementa una arquitectura de analítica empresarial en Power BI, integrando datos contables desde la API REST de Contifico.
