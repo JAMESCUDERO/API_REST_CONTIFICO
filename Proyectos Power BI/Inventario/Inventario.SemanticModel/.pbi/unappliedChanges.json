@@ -1,0 +1,1108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/unappliedChanges/1.0.0/schema.json",
+  "conceptualSchemaSettings": {},
+  "queries": [
+    {
+      "name": "?page=1",
+      "lineageTag": "8831c939-120b-446f-bcbd-189d90f63ee2",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=1\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (2)",
+      "lineageTag": "378c10f2-4459-4f9d-ae7e-cef9c33c2dda",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"2\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (3)",
+      "lineageTag": "deca7379-9865-4521-9eb8-6559737c0725",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"3\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (4)",
+      "lineageTag": "a9be583b-3cb6-4f43-b8f3-c235d7635f87",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"4\", [Headers=[Authorization=\"**************************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (5)",
+      "lineageTag": "a06ce6c3-c944-48cd-aedd-23864cb5d1aa",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"5\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (6)",
+      "lineageTag": "bf3caf36-9f06-4303-951f-301e41265938",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"6\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (7)",
+      "lineageTag": "74ca3b54-7f70-4b9b-af1d-86bf44c0fb5c",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"7\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (8)",
+      "lineageTag": "16c41af5-36e1-499d-9958-72ffb41e7d0c",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"8\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (9)",
+      "lineageTag": "da827cb5-06ce-4c33-a569-ec19b82c28ee",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"9\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (10)",
+      "lineageTag": "a3f8ed10-f360-4919-9c03-59b99130e0e0",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"10\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (11)",
+      "lineageTag": "57339692-19cb-4de4-a65e-a34bfafe1f06",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"11\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (12)",
+      "lineageTag": "90c51dba-8294-4c2a-a55a-454d64ae6e34",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"12\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (13)",
+      "lineageTag": "0442065a-c826-47a2-856e-ad1a2101d418",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"13\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (14)",
+      "lineageTag": "b48421c8-f63a-43ad-ac3c-6cb2f08244cd",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"14\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "Inventario",
+      "lineageTag": "28a48993-6257-44ef-b01b-2ebfb83614a4",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Table.Combine({#\"?page= (1)\", #\"?page= (2)\", #\"?page= (3)\", #\"?page= (4)\", #\"?page= (5)\", #\"?page= (6)\", #\"?page= (7)\", #\"?page= (8)\", #\"?page= (9)\", #\"?page= (10)\", #\"?page= (11)\", #\"?page= (12)\", #\"?page= (13)\", #\"?page= (14)\", #\"?page= (15)\", #\"?page= (16)\", #\"?page= (17)\", #\"?page= (18)\", #\"?page= (19)\", #\"?page= (20)\", #\"?page= (21)\", #\"?page= (22)\", #\"?page= (23)\", #\"?page= (24)\", #\"?page= (25)\", #\"?page= (26)\", #\"?page= (27)\", #\"?page= (28)\", #\"?page= (29)\", #\"?page= (30)\", #\"?page= (31)\", #\"?page= (32)\", #\"?page= (33)\", #\"?page= (34)\", #\"?page= (35)\"}),",
+        "    #\"Texto extraído antes del delimitador\" = Table.TransformColumns(Origen, {{\"results.detalles.cantidad\", each Text.BeforeDelimiter(_, \".\"), type text}}),",
+        "    #\"Valor reemplazado\" = Table.ReplaceValue(#\"Texto extraído antes del delimitador\",\".\",\",\",Replacer.ReplaceText,{\"results.detalles.costo_promedio\"}),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Valor reemplazado\",{{\"results.detalles.costo_promedio\", type number}, {\"results.detalles.cantidad\", Int64.Type}, {\"results.fecha\", type date}})",
+        "in",
+        "    #\"Tipo cambiado\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Table.Combine({#\\\"?page= (1)\\\", #\\\"?page= (2)\\\", #\\\"?page= (3)\\\", #\\\"?page= (4)\\\", #\\\"?page= (5)\\\", #\\\"?page= (6)\\\", #\\\"?page= (7)\\\", #\\\"?page= (8)\\\", #\\\"?page= (9)\\\", #\\\"?page= (10)\\\", #\\\"?page= (11)\\\", #\\\"?page= (12)\\\", #\\\"?page= (13)\\\", #\\\"?page= (14)\\\", #\\\"?page= (15)\\\", #\\\"?page= (16)\\\", #\\\"?page= (17)\\\", #\\\"?page= (18)\\\", #\\\"?page= (19)\\\", #\\\"?page= (20)\\\", #\\\"?page= (21)\\\", #\\\"?page= (22)\\\", #\\\"?page= (23)\\\", #\\\"?page= (24)\\\", #\\\"?page= (25)\\\", #\\\"?page= (26)\\\", #\\\"?page= (27)\\\", #\\\"?page= (28)\\\", #\\\"?page= (29)\\\", #\\\"?page= (30)\\\", #\\\"?page= (31)\\\", #\\\"?page= (32)\\\", #\\\"?page= (33)\\\", #\\\"?page= (34)\\\", #\\\"?page= (35)\\\"}),\\n    #\\\"Texto extraído antes del delimitador\\\" = Table.TransformColumns(Origen, {{\\\"results.detalles.cantidad\\\", each Text.BeforeDelimiter(_, \\\".\\\"), type text}}),\\n    #\\\"Valor reemplazado\\\" = Table.ReplaceValue(#\\\"Texto extraído antes del delimitador\\\",\\\".\\\",\\\",\\\",Replacer.ReplaceText,{\\\"results.detalles.costo_promedio\\\"}),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(#\\\"Valor reemplazado\\\",{{\\\"results.detalles.costo_promedio\\\", type number}, {\\\"results.detalles.cantidad\\\", Int64.Type}, {\\\"results.fecha\\\", type date}})\\nin\\n    #\\\"Tipo cambiado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "Bodega",
+      "lineageTag": "5b6b66f4-e17a-4583-b10e-b9d5c4c29891",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v1/bodega/\", [Headers=[Authorization=\"*************\"]]), 12345),",
+        "    #\"Convertida en tabla\" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+        "    #\"Se expandió Column1\" = Table.ExpandRecordColumn(#\"Convertida en tabla\", \"Column1\", {\"id\", \"codigo\", \"nombre\"}, {\"id\", \"codigo\", \"nombre\"}),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Se expandió Column1\",{{\"id\", type text}, {\"codigo\", type text}, {\"nombre\", type text}}),",
+        "    #\"Poner En Mayúsculas Cada Palabra\" = Table.TransformColumns(#\"Tipo cambiado\",{{\"nombre\", Text.Proper, type text}})",
+        "in",
+        "    #\"Poner En Mayúsculas Cada Palabra\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Json.Document(Web.Contents(\\\"https://api.contifico.com/sistema/api/v1/bodega/\\\", [Headers=[Authorization=\\\"PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ\\\"]]), 65001),\\n    #\\\"Convertida en tabla\\\" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),\\n    #\\\"Se expandió Column1\\\" = Table.ExpandRecordColumn(#\\\"Convertida en tabla\\\", \\\"Column1\\\", {\\\"id\\\", \\\"codigo\\\", \\\"nombre\\\"}, {\\\"id\\\", \\\"codigo\\\", \\\"nombre\\\"}),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(#\\\"Se expandió Column1\\\",{{\\\"id\\\", type text}, {\\\"codigo\\\", type text}, {\\\"nombre\\\", type text}}),\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\" = Table.TransformColumns(#\\\"Tipo cambiado\\\",{{\\\"nombre\\\", Text.Proper, type text}})\\nin\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "Producto",
+      "lineageTag": "8742524d-4cc2-46af-8cc9-8af55ef63b9f",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Table.Combine({#\"?page=1\", #\"?page=1 (2)\", #\"?page=1 (3)\", #\"?page=1 (4)\", #\"?page=1 (5)\", #\"?page=1 (6)\", #\"?page=1 (7)\", #\"?page=1 (8)\", #\"?page=1 (9)\", #\"?page=1 (10)\", #\"?page=1 (11)\", #\"?page=1 (12)\", #\"?page=1 (13)\", #\"?page=1 (14)\", #\"?page=1 (15)\"}),",
+        "    #\"Valor reemplazado\" = Table.ReplaceValue(Origen,\".\",\",\",Replacer.ReplaceText,{\"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\"}),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Valor reemplazado\",{{\"results.pvp1\", type number}, {\"results.pvp2\", type number}, {\"results.pvp3\", type number}, {\"results.pvp4\", type number}}),",
+        "    #\"Poner En Mayúsculas Cada Palabra\" = Table.TransformColumns(#\"Tipo cambiado\",{{\"results.nombre\", Text.Proper, type text}})",
+        "in",
+        "    #\"Poner En Mayúsculas Cada Palabra\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Table.Combine({#\\\"?page=1\\\", #\\\"?page=1 (2)\\\", #\\\"?page=1 (3)\\\", #\\\"?page=1 (4)\\\", #\\\"?page=1 (5)\\\", #\\\"?page=1 (6)\\\", #\\\"?page=1 (7)\\\", #\\\"?page=1 (8)\\\", #\\\"?page=1 (9)\\\", #\\\"?page=1 (10)\\\", #\\\"?page=1 (11)\\\", #\\\"?page=1 (12)\\\", #\\\"?page=1 (13)\\\", #\\\"?page=1 (14)\\\", #\\\"?page=1 (15)\\\"}),\\n    #\\\"Valor reemplazado\\\" = Table.ReplaceValue(Origen,\\\".\\\",\\\",\\\",Replacer.ReplaceText,{\\\"results.pvp1\\\", \\\"results.pvp2\\\", \\\"results.pvp3\\\", \\\"results.pvp4\\\"}),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(#\\\"Valor reemplazado\\\",{{\\\"results.pvp1\\\", type number}, {\\\"results.pvp2\\\", type number}, {\\\"results.pvp3\\\", type number}, {\\\"results.pvp4\\\", type number}}),\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\" = Table.TransformColumns(#\\\"Tipo cambiado\\\",{{\\\"results.nombre\\\", Text.Proper, type text}})\\nin\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (1)",
+      "lineageTag": "52bbd868-fc41-4834-ae60-58ed442acb9d",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"1\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (2)",
+      "lineageTag": "9e818f0b-1997-4734-a047-2a33562d3d59",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"2\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (3)",
+      "lineageTag": "7d953556-6088-4a46-ab89-37a6add73ba4",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"3\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (4)",
+      "lineageTag": "26ce223f-20c1-49df-8ca8-18a8ba500859",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"4\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (5)",
+      "lineageTag": "dfa948a8-7b06-499e-a136-5de0dbce6138",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"5\", [Headers=[Authorization=\"PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (6)",
+      "lineageTag": "b4cafc92-12ea-428c-954c-23a336b4fc49",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"6\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (7)",
+      "lineageTag": "bddee7c6-6682-4d09-9680-404641531eba",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"7\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (8)",
+      "lineageTag": "e6706767-d38e-4590-8004-894a10c12272",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"8\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (9)",
+      "lineageTag": "24663758-6754-4656-8475-c958cf30958c",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"9\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (10)",
+      "lineageTag": "331eb8f9-739c-485b-8cf3-e9f1588c9e76",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"10\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (11)",
+      "lineageTag": "1ae93f02-41f2-41fc-8039-945904ac0077",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"11\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (12)",
+      "lineageTag": "610cc933-5210-411d-bcdd-930d699806b7",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"12\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (13)",
+      "lineageTag": "de4659af-e2d9-42e6-ae94-45ab1e43bb5b",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"13\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (14)",
+      "lineageTag": "265acc79-dd67-4756-ae5b-03e28de46270",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"14\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (15)",
+      "lineageTag": "2e3b5ff1-7e57-4356-9f06-ccb67962eb57",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"15\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (16)",
+      "lineageTag": "9a1486ae-2ebb-4516-a712-c50c6ae0ebeb",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"16\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (17)",
+      "lineageTag": "b0be3e26-80ed-40ee-8e3d-285d3b336f12",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"17\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (18)",
+      "lineageTag": "6a361eb7-9071-446e-8e2b-abaa75a98f7d",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"18\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (19)",
+      "lineageTag": "d85866e2-3206-44f7-9955-b97df7ee46a6",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"19\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (20)",
+      "lineageTag": "c20bff67-b01e-4b9b-a48f-b541d0deeb4c",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"20\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (21)",
+      "lineageTag": "dbb17c94-38f0-4613-b2a7-1866a9d529ba",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"21\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (22)",
+      "lineageTag": "3a42a53a-13e2-44ae-9734-708c573462d3",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"22\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (23)",
+      "lineageTag": "4c30cf6d-7cdc-4178-81db-820be4c80bef",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"23\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (24)",
+      "lineageTag": "1e6b0b56-39d3-4327-810c-0a5fabc1c536",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"24\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (25)",
+      "lineageTag": "3871ec96-3b2b-4588-93ae-6f1b45fc6e73",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"25\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (26)",
+      "lineageTag": "80269206-9117-4899-aab7-fe42edcdd9fc",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"26\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (27)",
+      "lineageTag": "73dbb322-85c2-4104-acd5-ebcee7418101",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"27\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (28)",
+      "lineageTag": "b4b55edc-ad51-435b-b89d-b64425ba79f7",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"28\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (29)",
+      "lineageTag": "224d6c2c-8027-497b-9a22-e9692d67fd4d",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"29\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (30)",
+      "lineageTag": "6b5c425f-c4ea-4649-97ae-7cc25fb4de1f",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"30\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (31)",
+      "lineageTag": "39e7144e-fcfe-41d6-b8ea-e5705bad7ede",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"31\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (32)",
+      "lineageTag": "1ec133f9-874c-4f79-acfb-6ec516324fb2",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"32\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "DAX",
+      "lineageTag": "b9c900b5-190d-443f-9c9d-2e6045a1ed2f",
+      "text": [
+        "let",
+        "    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"Columna1\", type text}}),",
+        "    #\"Columnas quitadas\" = Table.RemoveColumns(#\"Tipo cambiado\",{\"Columna1\"})",
+        "in",
+        "    #\"Columnas quitadas\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\\\"i44FAA==\\\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(Origen,{{\\\"Columna1\\\", type text}}),\\n    #\\\"Columnas quitadas\\\" = Table.RemoveColumns(#\\\"Tipo cambiado\\\",{\\\"Columna1\\\"})\\nin\\n    #\\\"Columnas quitadas\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "Corte",
+      "lineageTag": "742717bf-631a-4727-ac19-bedce74247f3",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    // Obtener fecha y hora actuales en UTC",
+        "    FechaHoraUTC = DateTimeZone.UtcNow(),",
+        "",
+        "    // Aplicar la zona horaria deseada (por ejemplo, -5 horas)",
+        "    FechaHoraZona = DateTimeZone.SwitchZone(FechaHoraUTC, -5),",
+        "",
+        "    // Quitar información de zona horaria si solo quieres fecha/hora",
+        "    FechaHora = DateTimeZone.RemoveZone(FechaHoraZona)",
+        "in",
+        "    FechaHora"
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    // Obtener fecha y hora actuales en UTC\\n    FechaHoraUTC = DateTimeZone.UtcNow(),\\n\\n    // Aplicar la zona horaria deseada (por ejemplo, -5 horas)\\n    FechaHoraZona = DateTimeZone.SwitchZone(FechaHoraUTC, -5),\\n\\n    // Quitar información de zona horaria si solo quieres fecha/hora\\n    FechaHora = DateTimeZone.RemoveZone(FechaHoraZona)\\nin\\n    FechaHora\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "DateTime",
+      "isHidden": false
+    },
+    {
+      "name": "Categoria",
+      "lineageTag": "c9b1bcd4-3d5b-4b6e-9c95-e36ad91e98f4",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v1/categoria/\", [Headers=[Authorization=\"*************\"]]), 12345),",
+        "    #\"Convertida en tabla\" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+        "    #\"Se expandió Column1\" = Table.ExpandRecordColumn(#\"Convertida en tabla\", \"Column1\", {\"id\", \"nombre\", \"tipo_producto\"}, {\"id\", \"nombre\", \"tipo_producto\"}),",
+        "    #\"Poner En Mayúsculas Cada Palabra\" = Table.TransformColumns(#\"Se expandió Column1\",{{\"nombre\", Text.Proper, type text}})",
+        "in",
+        "    #\"Poner En Mayúsculas Cada Palabra\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Json.Document(Web.Contents(\\\"https://api.contifico.com/sistema/api/v1/categoria/\\\", [Headers=[Authorization=\\\"PoLP4WYWm9Ylyhhud1rEx4d7xCetsBBsJfe4Yl7k4cQ\\\"]]), 65001),\\n    #\\\"Convertida en tabla\\\" = Table.FromList(Origen, Splitter.SplitByNothing(), null, null, ExtraValues.Error),\\n    #\\\"Se expandió Column1\\\" = Table.ExpandRecordColumn(#\\\"Convertida en tabla\\\", \\\"Column1\\\", {\\\"id\\\", \\\"nombre\\\", \\\"tipo_producto\\\"}, {\\\"id\\\", \\\"nombre\\\", \\\"tipo_producto\\\"}),\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\" = Table.TransformColumns(#\\\"Se expandió Column1\\\",{{\\\"nombre\\\", Text.Proper, type text}})\\nin\\n    #\\\"Poner En Mayúsculas Cada Palabra\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page=1 (15)",
+      "lineageTag": "cf2b647b-f326-4e1e-b658-007afaa9008b",
+      "queryGroupId": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/producto/?page=\" & \"15\", [Headers=[Authorization=\"**************************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"id\", \"unidad\", \"categoria_id\", \"codigo\", \"nombre\", \"codigo_auxiliar\", \"pvp_manual\", \"pvp1\", \"pvp2\", \"pvp3\", \"pvp4\", \"generacion_automatica\", \"porcentaje_iva\", \"minimo\", \"estado\", \"tipo\", \"tipo_producto\", \"para_pos\", \"personalizado1\", \"personalizado2\", \"descripcion\", \"codigo_barra\", \"fecha_creacion\", \"costo_maximo\", \"codigo_proveedor\", \"lead_time\", \"cantidad_stock\", \"cuenta_venta_id\", \"cuenta_compra_id\", \"cuenta_costo_id\", \"marca_id\", \"marca_nombre\", \"imagen\", \"producto_base_id\", \"nombre_producto_base\", \"detalle_variantes\", \"codigo_sap\", \"para_supereasy\", \"pvp_supereasy\", \"para_comisariato\", \"pvp_comisariato\", \"categoria_comisariato\", \"id_integracion_proveedor\", \"departamento\", \"descripcion_departamento\", \"familia\", \"descripcion_familia\", \"jerarquia\", \"descripcion_jerarquia\", \"indicador_peso\", \"pvp_peso\", \"peso_desde\", \"peso_hasta\", \"porcentaje_ice\", \"valor_ice\", \"campo_catalogo\", \"maneja_nombremanual\", \"porcentaje_servicio\"}, {\"results.id\", \"results.unidad\", \"results.categoria_id\", \"results.codigo\", \"results.nombre\", \"results.codigo_auxiliar\", \"results.pvp_manual\", \"results.pvp1\", \"results.pvp2\", \"results.pvp3\", \"results.pvp4\", \"results.generacion_automatica\", \"results.porcentaje_iva\", \"results.minimo\", \"results.estado\", \"results.tipo\", \"results.tipo_producto\", \"results.para_pos\", \"results.personalizado1\", \"results.personalizado2\", \"results.descripcion\", \"results.codigo_barra\", \"results.fecha_creacion\", \"results.costo_maximo\", \"results.codigo_proveedor\", \"results.lead_time\", \"results.cantidad_stock\", \"results.cuenta_venta_id\", \"results.cuenta_compra_id\", \"results.cuenta_costo_id\", \"results.marca_id\", \"results.marca_nombre\", \"results.imagen\", \"results.producto_base_id\", \"results.nombre_producto_base\", \"results.detalle_variantes\", \"results.codigo_sap\", \"results.para_supereasy\", \"results.pvp_supereasy\", \"results.para_comisariato\", \"results.pvp_comisariato\", \"results.categoria_comisariato\", \"results.id_integracion_proveedor\", \"results.departamento\", \"results.descripcion_departamento\", \"results.familia\", \"results.descripcion_familia\", \"results.jerarquia\", \"results.descripcion_jerarquia\", \"results.indicador_peso\", \"results.pvp_peso\", \"results.peso_desde\", \"results.peso_hasta\", \"results.porcentaje_ice\", \"results.valor_ice\", \"results.campo_catalogo\", \"results.maneja_nombremanual\", \"results.porcentaje_servicio\"})",
+        "in",
+        "    #\"Se expandió results1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (33)",
+      "lineageTag": "18a50f30-12c1-47d7-b220-abc0f3092905",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"33\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (34)",
+      "lineageTag": "8cb8d9f4-9bcc-47ea-a1a6-441b442ed119",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"34\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "?page= (35)",
+      "lineageTag": "cb5542c2-8b52-43d1-8aa9-843ba118d3ac",
+      "queryGroupId": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Json.Document(Web.Contents(\"https://api.contifico.com/sistema/api/v2/movimiento-inventario/?page=\" & \"35\", [Headers=[Authorization=\"*************\"]])),",
+        "    #\"Convertida en tabla\" = Table.FromRecords({Origen}),",
+        "    #\"Se expandió results\" = Table.ExpandListColumn(#\"Convertida en tabla\", \"results\"),",
+        "    #\"Se expandió results1\" = Table.ExpandRecordColumn(#\"Se expandió results\", \"results\", {\"codigo\", \"bodega_id\", \"tipo\", \"fecha\", \"generar_asiento\", \"pos\", \"cuenta_id\", \"detalles\", \"maneja_venta\", \"descripcion\", \"total\", \"estado\", \"id\", \"bodega_destino_id\", \"codigo_interno\", \"proyecto\"}, {\"results.codigo\", \"results.bodega_id\", \"results.tipo\", \"results.fecha\", \"results.generar_asiento\", \"results.pos\", \"results.cuenta_id\", \"results.detalles\", \"results.maneja_venta\", \"results.descripcion\", \"results.total\", \"results.estado\", \"results.id\", \"results.bodega_destino_id\", \"results.codigo_interno\", \"results.proyecto\"}),",
+        "    #\"Se expandió results.detalles\" = Table.ExpandListColumn(#\"Se expandió results1\", \"results.detalles\"),",
+        "    #\"Se expandió results.detalles1\" = Table.ExpandRecordColumn(#\"Se expandió results.detalles\", \"results.detalles\", {\"serie\", \"producto_id\", \"edicion\", \"precio\", \"cantidad\", \"unidad\", \"costo_promedio\"}, {\"results.detalles.serie\", \"results.detalles.producto_id\", \"results.detalles.edicion\", \"results.detalles.precio\", \"results.detalles.cantidad\", \"results.detalles.unidad\", \"results.detalles.costo_promedio\"})",
+        "in",
+        "    #\"Se expandió results.detalles1\""
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Exception",
+      "isHidden": false
+    }
+  ],
+  "queryGroups": [
+    {
+      "name": "Producto Origen",
+      "id": "fd45fe04-2750-436c-8924-41030b32f9d9",
+      "description": ""
+    },
+    {
+      "name": "Movimiento de inventario",
+      "id": "65bccc25-d68d-43fe-9b28-b4d747c3eae2",
+      "order": 1,
+      "description": ""
+    }
+  ],
+  "culture": "es-EC",
+  "firewallEnabled": true
+}
